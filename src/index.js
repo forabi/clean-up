@@ -1,4 +1,4 @@
-import * as unicode from "./unicode.js";
+import { unicode } from "./unicode.js";
 
 const new_line = "[\\n\\r]",
       whitespace = "[\u00A0\\s]",
@@ -17,7 +17,7 @@ const new_line = "[\\n\\r]",
       digit = "[\u0660-\u0669\u06F0-\u06F9]",
       letter = "[اآأبتثجحخدذرزسشصضعغفقكلمنهويءئ]",
       decimal_separator = "٫",
-      dulpicate_periods = ".{2,}",
+      dulpicate_periods = "\\.{2,}",
       kashida = "ـ";
 
 var replaces = {
@@ -57,11 +57,11 @@ var rules = [
 function cleanUp(rules) {
   return function clean(str) {
       rules.forEach(function(name) {
-          // console.log(`Rule name is ${name}`);
+          console.log(`Rule name is ${name}`);
           var rule = replaces[name];
-          // console.log("Rule", rule);
+          console.log("Rule", rule);
           var regex = rule[0];
-          // console.log("Matches?", str.match(regex));
+          console.log("Matches?", str.match(regex));
           str = str.replace(rule[0], rule[1]);
       });
       return str;

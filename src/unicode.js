@@ -17,8 +17,7 @@
 //   LEFTWARDS_DOUBLE_ARROW = "⇐",
 //   RIGHTWARDS_ARROW = "→",
 //   RIGHTWARDS_DOUBLE_ARROW = "⇒";
-
-export const unicode = {
+export var unicode = {
     ZWJ: "\u200d",
     ELLIPSIS: "…"
 };
