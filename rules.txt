@@ -1,0 +1,31 @@
+---------------------------
+* Remove empty lines
+* Remove trailing whitespace
+* Remove heading whitespace
+* Remove dulpicate whitespaces
+* Remove whitespaces before punctuation marks
+* Remove whitespaces around parenthesis
+* Remove whitespace after single "و" (or replace with non-breaking space)
+* Remove Kashida (ـ)
+* Replace trailing Kashida with zero-width non-joiner (كـSyntax)
+* Replace latin comma (,) after an Arabic word with an Arabic comma "،"
+* Replace latin semicolon (;) after an Arabic word with an Arabic comma "؛"
+* Replace latin comma (,) used in place of a decimal separator with an Arabic decimal separator (٫)
+* Remove dulpicate punctuation (??, !!!, ،،،)
+---------------------------
+* Replace a hyphen between two digits with an en-dash
+* Replace a hyphen surrounded by two spaces with an em-dash (i.e appositive) surrounded by hair spaces
+* Replace <3 with a heart (❤)
+* Replace <-- with a leftwards arrow (←)
+* Replace --> with a rightwards arrow (→)
+* Replace <== with a leftwards double arrow (⇐)
+* Replace ==> with a rightwards double arrow (⇒)
+* Use ‘ for an opening quote (ignoring quotes between digits)
+* Use ’ for an closing quote (ignoring quotes between digits)
+* Use “ for an opening quote (ignoring quotes between digits)
+* Use ” for an closing quote (ignoring quotes between digits)
+* Replace three periods with an ellipsis (…)
+* Replace :) with a smiley face (☺)
+* Replace :( with a frowny face (☹)
+----------------
+* Remove trailing horizontal rules
