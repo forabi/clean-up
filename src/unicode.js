@@ -1,7 +1,7 @@
 // var HYPHEN = "\u2010",
 //   NON_BREAKING_HYPHEN = "\u2011",
-//   EM_DASH = "\u2014",
-//   EN_DASH = "\u2013",
+//   EM_DASH = ,
+//   ,
 //   QUOTATION_DASH = "\u2015",
 //   OPENING_SINGLE_QUOTATION_MARKS = ['‘'],
 //   OPENING_DOUBLE_QUOTATION_MARKS = ['“', '„', '”'],
@@ -19,7 +19,13 @@
 //   RIGHTWARDS_DOUBLE_ARROW = "⇒";
 export var unicode = {
     ZWJ: "\u200d",
-    ELLIPSIS: "…"
+    ZWNJ: "\u200c",
+    ELLIPSIS: "…",
+    HAIR_SPACE: "\u200a",
+    EM_DASH: "\u2014",
+    EN_DASH: "\u2013",
+    RIGHT_DOUBLE_QUOTATION_MARK: "\u201d",
+    LEFT_DOUBLE_QUOTATION_MARK: "\u201c"
 };
 
 // var ANY_DIGIT = "[" + DIGITS.join() + "]";

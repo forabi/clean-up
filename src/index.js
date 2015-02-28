@@ -1,12 +1,14 @@
 import { unicode } from "./unicode.js";
 
 const new_line = "[\\n\\r]",
-      whitespace = "[\u00A0\\s]",
+      whitespace = `[\u00A0\\s${unicode.HAIR_SPACE}]`,
+      dash = `[${unicode.EM_DASH}${unicode.EN_DASH}\\-]`,
       dulpicate_whitespace = `${whitespace}{2,}`,
       punctuation = "[؟!،:؛.]",
       duplicate_punctuation = "(؟){2,}|(!){2,}|(،){2,}|(:){2,}|(؛){2,}|(؟!){2,}|(!؟){2,}",
       opening_bracket = "[({\[]",
       closing_bracket = "[)}\]]",
+      double_quotation_mark = "\"",
       unit = "[$%٪؉؊]",
       latin_comma = ",",
       latin_semicolon = ";",
@@ -34,7 +36,9 @@ var replaces = {
     fix_latin_comma_as_decimal_separator: [new RegExp(`(${digit})(${latin_semicolon})(?=${digit})`, "g"), `$1${decimal_separator}`],
     remove_duplicate_punctuation: [new RegExp(`${duplicate_punctuation}`, "g"), "$1"],
     remove_whitespace_after_single_waw: [new RegExp(`${whitespace}و${whitespace}`, "g"), " و"],
-    fix_periods_as_ellipsis: [new RegExp(dulpicate_periods, "g"), unicode.ELLIPSIS]
+    fix_periods_as_ellipsis: [new RegExp(dulpicate_periods, "g"), unicode.ELLIPSIS],
+    beautify_quotes: [new RegExp(`${double_quotation_mark}(.+)${double_quotation_mark}`, "g"), `${unicode.RIGHT_DOUBLE_QUOTATION_MARK}$1${unicode.LEFT_DOUBLE_QUOTATION_MARK}`],
+    fix_hyphens_as_em_dashes: [new RegExp(`${whitespace}+?${dash}${whitespace}+?(.+)${whitespace}+?${dash}${whitespace}+?`, "g"), `${unicode.HAIR_SPACE}${unicode.EM_DASH}${unicode.HAIR_SPACE}$1${unicode.HAIR_SPACE}${unicode.EM_DASH}${unicode.HAIR_SPACE}`]
 };
 
 var rules = [
@@ -51,7 +55,9 @@ var rules = [
     "lfix_atin_semicolon",
     "fix_latin_comma_as_decimal_separator",
     "remove_duplicate_punctuation",
-    "fix_periods_as_ellipsis"
+    "fix_periods_as_ellipsis",
+    "beautify_quotes",
+    "fix_hyphens_as_em_dashes"
 ];
 
 function cleanUp(rules) {
